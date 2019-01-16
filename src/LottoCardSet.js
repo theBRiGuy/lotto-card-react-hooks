@@ -20,6 +20,7 @@ class LottoCardSet extends Component {
   }
 
   render() {
+
     const cards = () => {
       if (this.state.cards.length > 0) {
         return (
@@ -32,7 +33,8 @@ class LottoCardSet extends Component {
           <p>No lotto cards!</p>
         );
       }
-    }
+    };
+
     return (
       <div className="LottoCardSet">
         {cards()}

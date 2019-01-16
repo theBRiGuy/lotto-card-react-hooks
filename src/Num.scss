@@ -1,0 +1,45 @@
+.Num {
+  box-sizing: border-box;
+  color: black;
+  font-size: 2rem;
+  position: relative;
+  width: 52px;
+  height: 52px;
+  margin: 5px;
+
+  &__checkbox {
+    display: block;
+    margin: 0;
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    opacity: 0;
+
+    &:checked + .Num__label {
+      background-color: blue;
+      border-color: blue;
+      color: white;
+
+    }
+    &:focus + .Num__label::before {
+      content: "";
+      outline: rgb(59, 153, 252) dotted 20px;
+    }
+  }
+
+  &__label {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    line-height: 49px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    user-select: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
