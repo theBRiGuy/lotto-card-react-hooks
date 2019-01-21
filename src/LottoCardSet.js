@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LottoCard from './LottoCard';
+import { AddLottoCard } from './LottoCard'
 
 class LottoCardSet extends Component {
 
@@ -10,6 +10,7 @@ class LottoCardSet extends Component {
         return (
           <ul className="LottoCardList">
             {React.Children.toArray(this.props.cards)}
+            {AddLottoCard()}
           </ul>
         )
       } else {

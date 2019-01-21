@@ -1,18 +1,4 @@
 body {
   background-color: #ffffcc;
   color: #ff0000;
-
-  .LottoCardListItem {
-    display: inline-block;
-    .LottoCard {
-      float: left;
-      margin: 20px;
-      padding: 20px;
-      width: 315px;
-
-      .Num {
-        float: left;
-      }
-    }
-  }
 }

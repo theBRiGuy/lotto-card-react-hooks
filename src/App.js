@@ -1,10 +1,8 @@
-// import React, { Component } from 'react';
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Landing from './Landing'
 import LottoCardSet from './LottoCardSet'
 import LottoCard from './LottoCard'
-import logo from './logo.svg'
 import './App.scss'
 
 class App extends Component {

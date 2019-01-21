@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Num from './Num'
+import './LottoCard.scss'
 
 class LottoCard extends Component {
 
@@ -19,7 +20,7 @@ class LottoCard extends Component {
 
     // Remove value from array if it exists, otherwise add it to array and sort
     const _toggleValueInArray = function(arr, val) {
-      const indexFound = arr.findIndex((el) => el == val)
+      const indexFound = arr.findIndex((el) => el === val)
       if (indexFound >= 0) {
         arr.splice(indexFound, 1)
       } else {
@@ -57,4 +58,13 @@ class LottoCard extends Component {
   }
 }
 
+const AddLottoCard = () => (
+  <li className="LottoCardListItem">
+    <button className="LottoCardListItem__AddButton">
+      Click to<br/>Add Card
+    </button>
+  </li>
+)
+
+export { AddLottoCard, LottoCard }
 export default LottoCard

@@ -1,0 +1,36 @@
+.LottoCardListItem {
+  display: inline-block;
+  width: 315px;
+  height: 650px;
+  margin: 20px;
+
+  .LottoCard {
+    float: left;
+  }
+
+  &__AddButton {
+    color: #ccc;
+    font-size: 3rem;
+    font-weight: bold;
+    float: left;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border: 10px dashed #ccc;
+    cursor: pointer;
+
+    &::before {
+      background-color: #ccc;
+      border-radius: 15px;
+      color: white;
+      white-space: pre;
+      text-align: center;
+      content: "\002B\A";
+      display: block;
+      width: 5rem;
+      height: 5rem;
+      margin: 0 auto;
+    }
+  }
+}
