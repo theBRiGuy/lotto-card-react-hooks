@@ -58,13 +58,4 @@ class LottoCard extends Component {
   }
 }
 
-const AddLottoCard = () => (
-  <li className="LottoCardListItem">
-    <button className="LottoCardListItem__AddButton">
-      Click to<br/>Add Card
-    </button>
-  </li>
-)
-
-export { AddLottoCard, LottoCard }
 export default LottoCard
