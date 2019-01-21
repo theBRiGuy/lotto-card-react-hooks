@@ -53,7 +53,7 @@ class App extends Component {
             <Landing {...props} onCardCountChange={this.handleCardCountChange} />
           } />
           <Route path='/pick' render={(props) =>
-            <LottoCardSet {...props} />
+            <LottoCardSet {...props} cards={this.state.cards} />
           } />
           <Route component={NoMatch} />
         </Switch>

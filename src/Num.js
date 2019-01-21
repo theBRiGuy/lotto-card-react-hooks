@@ -17,9 +17,13 @@ class Num extends Component {
       this.id = `toggle_${Math.random().toString().replace(/0\./, '')}`;
   }
 
-  handleChange () {
-    this.setState({isChecked: !this.state.isChecked});
-        console.log('CHANGE!');
+  handleChange() {
+    console.log("num changed!")
+    this.setState({
+      isChecked: !this.state.isChecked
+    }, () => {
+      this.props.onNumChange(this.props.numName)
+    });
   }
 
   render() {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class Landing extends Component {
 
@@ -11,7 +11,7 @@ class Landing extends Component {
   handleChange(ev) {
     this.props.onCardCountChange(ev.target.value)
   }
-  
+
   handleSubmit(ev) {
     ev.preventDefault()
   }
