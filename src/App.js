@@ -15,6 +15,7 @@ class App extends Component {
     }
 
     this.handleCardCountChange = this.handleCardCountChange.bind(this)
+    this.handleAddCard = this.handleAddCard.bind(this)
   }
 
   createBlankCards(n) {
@@ -43,6 +44,10 @@ class App extends Component {
     })
   }
 
+  handleAddCard() {
+    this.handleCardCountChange(this.state.cards.length + 1)
+  }
+
   render() {
     return (
       <main>
@@ -51,7 +56,7 @@ class App extends Component {
             <Landing {...props} onCardCountChange={this.handleCardCountChange} />
           } />
           <Route path='/pick' render={(props) =>
-            <LottoCardSet {...props} cards={this.state.cards} />
+            <LottoCardSet {...props} cards={this.state.cards} onAddCard ={this.handleAddCard} />
           } />
           <Route component={NoMatch} />
         </Switch>
