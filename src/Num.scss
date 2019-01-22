@@ -22,9 +22,8 @@
       color: white;
 
     }
-    &:focus + .Num__label::before {
-      content: "";
-      outline: rgb(59, 153, 252) dotted 20px;
+    &:focus + .Num__label {
+      outline: rgb(59, 153, 252) dotted 1px;
     }
   }
 
