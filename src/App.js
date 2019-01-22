@@ -52,10 +52,10 @@ class App extends Component {
     return (
       <main>
         <Switch>
-          <Route exact path='/' render={(props) =>
+          <Route exact path='/landing' render={(props) =>
             <Landing {...props} onCardCountChange={this.handleCardCountChange} />
           } />
-          <Route path='/pick' render={(props) =>
+          <Route exact path='/' render={(props) =>
             <LottoCardSet {...props} cards={this.state.cards} onAddCard ={this.handleAddCard} />
           } />
           <Route component={NoMatch} />
