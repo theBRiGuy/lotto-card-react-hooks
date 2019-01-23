@@ -18,7 +18,6 @@ class Num extends Component {
   }
 
   handleChange() {
-    console.log("num changed!")
     this.setState({
       isChecked: !this.state.isChecked
     }, () => {
@@ -33,8 +32,8 @@ class Num extends Component {
           className="Num__checkbox"
           type="checkbox"
           id={this.id}
-          data-num-name={this.props.numName}
           checked={this.props.isChecked}
+          disabled={this.props.isDisabled}
           onChange={this.handleChange}
         />
         <label

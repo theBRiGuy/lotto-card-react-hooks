@@ -25,6 +25,10 @@
     &:focus + .Num__label {
       outline: rgb(59, 153, 252) dotted 1px;
     }
+    &:disabled + .Num__label {
+      border-color: #999;
+      color: #999;
+    }
   }
 
   &__label {
