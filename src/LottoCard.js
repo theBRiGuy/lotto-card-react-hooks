@@ -12,7 +12,27 @@ class LottoCard extends Component {
     }
 
     this.handleSelectedNumsChange = this.handleSelectedNumsChange.bind(this)
+  }
 
+  createNums = () => {
+    let numsArr = []
+
+    for (let i = 1; i <= 49; i++) {
+      numsArr.push(
+        <Num key={i} numName={i} onNumChange={this.handleSelectedNumsChange} isDisabled={this.shouldDisable(i)} />
+      )
+    }
+    return numsArr
+  }
+
+  shouldDisable = (num) => {
+    const selectedNums = this.state.selectedNums
+    if (selectedNums.length === 7 && !selectedNums.includes(num)) {
+      return true
+    }
+    else {
+      return false
+    }
   }
 
   handleSelectedNumsChange(num) {
@@ -36,34 +56,13 @@ class LottoCard extends Component {
   }
 
   render() {
-    const _shouldDisable = (num) => {
-      const selectedNums = this.state.selectedNums
-      if (selectedNums.length === 7 && !selectedNums.includes(num)) {
-        return true
-      }
-      else {
-        return false
-      }
-    }
-
-    const _createNums = () => {
-      let numsArr = [];
-
-      for (let i = 1; i <= 49; i++) {
-        numsArr.push(
-          <Num key={i} numName={i} onNumChange={this.handleSelectedNumsChange} isDisabled={_shouldDisable(i)} />
-        );
-      }
-      return numsArr;
-    }
-
     return (
       <li className="LottoCardListItem">
         <div className="LottoCard">
-          {_createNums()}
+          {this.createNums()}
         </div>
       </li>
-    );
+    )
   }
 }
 
