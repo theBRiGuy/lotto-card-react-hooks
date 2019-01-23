@@ -19,13 +19,13 @@ class LottoCard extends Component {
 
     for (let i = 1; i <= 49; i++) {
       numsArr.push(
-        <Num key={i} numName={i} onNumChange={this.handleSelectedNumsChange} isDisabled={this.shouldDisable(i)} />
+        <Num key={i} numName={i} onNumChange={this.handleSelectedNumsChange} isDisabled={this.shouldDisableNum(i)} />
       )
     }
     return numsArr
   }
 
-  shouldDisable = (num) => {
+  shouldDisableNum = (num) => {
     const selectedNums = this.state.selectedNums
     if (selectedNums.length === 7 && !selectedNums.includes(num)) {
       return true
