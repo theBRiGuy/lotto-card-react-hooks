@@ -6,15 +6,12 @@ class Num extends Component {
   constructor(props) {
     super(props);
 
+    this.id = `toggle_${Math.random().toString().replace(/0\./, '')}`;
     this.state = {
       isChecked: false
     };
 
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentWillMount() {
-      this.id = `toggle_${Math.random().toString().replace(/0\./, '')}`;
   }
 
   handleChange() {
