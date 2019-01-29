@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import LottoCardHeader from './LottoCardHeader'
 import Num from './Num'
 import './LottoCard.scss'
 
@@ -45,7 +46,7 @@ class LottoCard extends Component {
       // Otherwise, add it and re-sort the list
       } else {
         arr[arr.length] = val
-        arr.sort()
+        arr.sort((a, b) => a - b)
       }
       return arr
     }
@@ -59,7 +60,10 @@ class LottoCard extends Component {
     return (
       <li className="LottoCardListItem">
         <div className="LottoCard">
-          {this.createNums()}
+          <LottoCardHeader selectedNums={this.state.selectedNums} />
+          <ul className="LottoCard__numsList">
+            {this.createNums()}
+          </ul>
         </div>
       </li>
     )

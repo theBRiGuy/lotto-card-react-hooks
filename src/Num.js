@@ -24,7 +24,7 @@ class Num extends Component {
 
   render() {
     return (
-      <div className="Num">
+      <li className="Num">
         <input
           className="Num__checkbox"
           type="checkbox"
@@ -39,7 +39,7 @@ class Num extends Component {
           >
           {this.props.numName}
         </label>
-      </div>
+      </li>
     );
   }
 }

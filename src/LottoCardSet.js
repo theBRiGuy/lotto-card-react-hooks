@@ -60,14 +60,14 @@ class LottoCardSet extends Component {
     const cards = () => {
       if (this.state.cards.length > 0) {
         return (
-          <ul className="LottoCardList">
+          <ul className="LottoCardSet__lottoCardList">
             {React.Children.toArray(this.state.cards)}
             {this.addLottoCard()}
           </ul>
         )
       } else {
         return (
-          <p>No lotto cards!</p>
+          <p className="LottoCardSet__noCards">No lotto cards!</p>
         )
       }
     }

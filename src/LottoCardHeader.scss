@@ -1,0 +1,33 @@
+.LottoCardHeader {
+    background-color: #ccc;
+    height: 50px;
+    margin: 5px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    &__numList {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        &__num {
+            background-color: white;
+            margin: 5px;
+            width: 25px;
+            height: 25px;
+            border: 1px solid black;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            vertical-align: middle;
+        }
+    }
+    &__actionsList {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-left: auto;
+    }
+}
