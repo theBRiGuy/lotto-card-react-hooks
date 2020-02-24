@@ -14,7 +14,7 @@ class App extends Component {
             <Landing {...props} />
           } />
           <Route exact path='/' render={(props) =>
-            <LottoCardSet {...props} initialCards="3" />
+            <LottoCardSet {...props} initialCards={2} maxNums={7} />
           } />
           <Route component={NoMatch} />
         </Switch>
