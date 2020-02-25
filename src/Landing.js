@@ -1,49 +1,42 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Landing extends Component {
+function Landing(props) {
 
-  constructor(props) {
-    super(props)
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+  const handleChange = (ev) => {
+    // TODO
   }
 
-  handleChange(ev) {
-    this.props.onCardCountChange(ev.target.value)
-  }
-
-  handleSubmit(ev) {
+  const handleSubmit = (ev) => {
     ev.preventDefault()
+    // TODO
   }
 
-  render() {
-    return (
-      <div className="Landing">
-        <h1>
-          <label htmlFor="howMany">
-            How many tickets?
-          </label>
-        </h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            id="howMany"
-            type="number"
-            name="howMany"
-            min="1"
-            max="10"
-            step="1"
-            defaultValue="3"
-            onChange={this.handleChange}
-          />
-          <button
-            type="submit"
-          >
-            Go!
-          </button>
-        </form>
-      </div>
-    )
-  }
+  return (
+    <div className="Landing">
+      <h1>
+        <label htmlFor="howMany">
+          How many tickets?
+        </label>
+      </h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          id="howMany"
+          type="number"
+          name="howMany"
+          min="1"
+          max="10"
+          step="1"
+          defaultValue="3"
+          onChange={handleChange}
+        />
+        <button
+          type="submit"
+        >
+          Go!
+        </button>
+      </form>
+    </div>
+  )
 }
 
-export default Landing;
+export default Landing
