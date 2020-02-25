@@ -1,47 +1,38 @@
-import React, { Component } from 'react';
-import './Num.scss';
+import React, { useState } from 'react'
+import './Num.scss'
 
-class Num extends Component {
+function Num(props) {
 
-  constructor(props) {
-    super(props);
+  // state
+  const [isChecked, setChecked] = useState(false)
 
-    this.id = `toggle_${Math.random().toString().replace(/0\./, '')}`;
-    this.state = {
-      isChecked: false
-    };
-
-    this.handleChange = this.handleChange.bind(this);
+  // event handlers
+  const handleChange = () => {
+    setChecked(!isChecked)
+    props.onNumChange(props.numName)
   }
 
-  handleChange() {
-    this.setState({
-      isChecked: !this.state.isChecked
-    }, () => {
-      this.props.onNumChange(this.props.numName)
-    });
-  }
+  // helpers
+  const id = `num_${Math.random().toString().replace(/0\./, '')}`
 
-  render() {
-    return (
-      <li className="Num">
-        <input
-          className="Num__checkbox"
-          type="checkbox"
-          id={this.id}
-          checked={this.props.isChecked}
-          disabled={this.props.isDisabled}
-          onChange={this.handleChange}
-        />
-        <label
-          className="Num__label"
-          htmlFor={this.id}
-          >
-          {this.props.numName}
-        </label>
-      </li>
-    );
-  }
+  return (
+    <li className="Num">
+      <input
+        className="Num__checkbox"
+        type="checkbox"
+        id={id}
+        checked={props.isChecked}
+        disabled={props.isDisabled}
+        onChange={handleChange}
+      />
+      <label
+        className="Num__label"
+        htmlFor={id}
+        >
+        {props.numName}
+      </label>
+    </li>
+  );
 }
 
-export default Num;
+export default Num
