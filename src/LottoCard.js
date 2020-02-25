@@ -1,59 +1,49 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import LottoCardHeader from './LottoCardHeader'
 import Num from './Num'
 import './LottoCard.scss'
 
-class LottoCard extends Component {
+function LottoCard(props) {
 
-  constructor(props) {
-    super(props)
+  // state
+  const [selectedNums, setSelectedNums] = useState([])
 
-    this.state = {
-      selectedNums: []
+  // event handlers, etc.
+  const handleSelectedNumsChange = (num) => {
+    let newSelectedNums = [...selectedNums]
+    const indexFound = selectedNums.findIndex(idx => idx === num)
+    // If number is checked (found in list), remove it. Otherwise, add it to end of array and sort.
+    if (indexFound >= 0) {
+      newSelectedNums.splice(indexFound, 1)
+    } else {
+      newSelectedNums = newSelectedNums.concat([num]).sort((a, b) => a - b)
     }
-
-    this.handleSelectedNumsChange = this.handleSelectedNumsChange.bind(this)
+    setSelectedNums(newSelectedNums)
   }
 
-  handleSelectedNumsChange(num) {
-    this.setState(oldState => {
-      let selectedNums = [...oldState.selectedNums]
-      const indexFound = oldState.selectedNums.findIndex(idx => idx === num)
-      // If number is checked (found in list), remove it. Otherwise, add it to end of array and sort.
-      if (indexFound >= 0) {
-        selectedNums.splice(indexFound, 1)
-      } else {
-        selectedNums = selectedNums.concat([num]).sort((a, b) => a - b)
-      }
-      return { selectedNums }
-    })
+  const shouldDisableNum = (num) => {
+    return (selectedNums.length === props.maxNums && !selectedNums.includes(num))
   }
 
-  render() {
-    const shouldDisableNum = (num) => {
-      const selectedNums = this.state.selectedNums
-      return (selectedNums.length === this.props.maxNums && !selectedNums.includes(num))
+  // JSX functions
+  const nums = () => {
+    const numsArr = []
+    for (let i = 1; i <= 49; i++) {
+      numsArr.push(<Num key={i} numName={i} onNumChange={handleSelectedNumsChange} isDisabled={shouldDisableNum(i)} />)
     }
-
-    const nums = () => {
-      const numsArr = []
-      for (let i = 1; i <= 49; i++) {
-        numsArr.push(<Num key={i} numName={i} onNumChange={this.handleSelectedNumsChange} isDisabled={shouldDisableNum(i)} />)
-      }
-      return numsArr
-    }
-
-    return (
-      <li className="LottoCardListItem">
-        <div className="LottoCard">
-          <LottoCardHeader selectedNums={this.state.selectedNums} handleRemoveCard={this.props.handleRemoveCard.bind(this, this.props.id)} />
-          <ul className="LottoCard__numsList">
-            {nums()}
-          </ul>
-        </div>
-      </li>
-    )
+    return numsArr
   }
+
+  return (
+    <li className="LottoCardListItem">
+      <div className="LottoCard">
+        <LottoCardHeader selectedNums={selectedNums} handleRemoveCard={() => props.handleRemoveCard(props.id)} />
+        <ul className="LottoCard__numsList">
+          {nums()}
+        </ul>
+      </div>
+    </li>
+  )
 }
 
 export default LottoCard

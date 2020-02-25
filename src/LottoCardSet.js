@@ -13,10 +13,8 @@ function LottoCardSet(props) {
     return cards;
   }
 
-
   // card state
   const [cards, setCards] = useState(blankCards(props.initialCards));
-
 
   // event handlers
   const handleAddCard = () => {
@@ -24,7 +22,6 @@ function LottoCardSet(props) {
   }
 
   const handleRemoveCard = (id) => {
-    // this.setState(oldState => ({ cards: oldState.cards.filter(item => item.id !== id)}))
     setCards(cards.filter(card => card.id !== id))
   }
 
