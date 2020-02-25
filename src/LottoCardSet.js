@@ -41,7 +41,7 @@ function LottoCardSet(props) {
 
   return (
     <div className="LottoCardSet">
-      <h1>Select your numbers, {this.props.maxNums} per card:</h1>
+      <h1>Select your numbers, {props.maxNums} per card:</h1>
       {noCards}
       <ul className="LottoCardSet__lottoCardList">
         {cards.map(card => (
